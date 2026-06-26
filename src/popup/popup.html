@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prompt Toolkit</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header class="header">
+      <h1>Prompt Toolkit</h1>
+      <p class="subtitle">Manage your saved prompts</p>
+    </header>
+
+    <main class="main">
+      <p class="status" id="status">Loading...</p>
+      <p class="message hidden" id="message" role="alert"></p>
+
+      <!-- LIST SCREEN -->
+      <section id="screen-list">
+        <div class="toolbar">
+          <input
+            id="search"
+            class="input"
+            type="search"
+            placeholder="Search prompts..."
+            autocomplete="off"
+          />
+          <select id="category-filter" class="select" aria-label="Filter by category">
+            <option value="">All categories</option>
+          </select>
+          <button id="btn-add" class="btn btn--primary" type="button">+ Add Prompt</button>
+        </div>
+        <ul id="prompt-list" class="prompt-list"></ul>
+
+        <details class="categories">
+          <summary class="categories__summary">Manage categories</summary>
+          <div class="categories__body">
+            <form id="category-form" class="category-form">
+              <input
+                id="new-category"
+                class="input"
+                type="text"
+                placeholder="New category name"
+                maxlength="60"
+              />
+              <button class="btn btn--small" type="submit">Add</button>
+            </form>
+            <ul id="category-list" class="category-list"></ul>
+          </div>
+        </details>
+
+        <p class="hint">Or click the gear icon on ChatGPT to insert prompts.</p>
+      </section>
+
+      <!-- ADD / EDIT SCREEN -->
+      <section id="screen-form" class="hidden">
+        <h2 class="screen-form__title" id="form-title">Add Prompt</h2>
+        <form id="prompt-form" class="prompt-form" novalidate>
+          <label class="field">
+            <span class="field__label">Title</span>
+            <input id="field-title" class="input" type="text" maxlength="120" />
+          </label>
+          <label class="field">
+            <span class="field__label">Category</span>
+            <select id="field-category" class="select"></select>
+          </label>
+          <label class="field">
+            <span class="field__label">Prompt content</span>
+            <textarea
+              id="field-content"
+              class="textarea"
+              rows="7"
+              placeholder="Enter the prompt text to insert into ChatGPT..."
+            ></textarea>
+          </label>
+          <div class="form-actions">
+            <button id="btn-cancel" class="btn" type="button">Cancel</button>
+            <button id="btn-save" class="btn btn--primary" type="submit">Save Prompt</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

@@ -45,3 +45,9 @@ _Add screenshots or GIFs here_
 1. Download or clone this repository:
 ```bash
 git clone https://github.com/yourusername/chatgpt-prompt-toolkit
+```
+
+2. Open Chrome and go to `chrome://extensions`
+3. Enable **Developer mode** (top right)
+4. Click **Load unpacked** and select the `promptToolkit` folder (the one containing `manifest.json`)
+5. Open [ChatGPT](https://chatgpt.com) — you should see `[Prompt Toolkit] Content script loaded` in the browser console (F12)
